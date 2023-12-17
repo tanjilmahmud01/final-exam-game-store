@@ -2,12 +2,23 @@ import React, { useContext } from "react";
 import Layout from "../layout/Layout";
 import { Auth0Context } from "../context/Auth0Context";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { loginUser, SetLoginUser } = useContext(Auth0Context);
   const { loginWithPopup, isAuthenticated, user } = useAuth0();
   SetLoginUser(user);
   console.log("In the sign in Page: ", loginUser);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/products";
+
+  const signIn = () => {
+    loginWithPopup();
+    navigate(from, { replace: true });
+  };
+
   return (
     <Layout>
       <section>
@@ -96,7 +107,7 @@ const Login = () => {
             </form>
             <div className="mt-3 space-y-3">
               <button
-                onClick={() => loginWithPopup()}
+                onClick={signIn}
                 type="button"
                 className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-white focus:bg-gray-100 focus:text-white focus:outline-none"
               >
