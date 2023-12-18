@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Navbar = () => {
   const { loginUser, SetLoginUser } = useContext(Auth0Context);
   const { logout, isAuthenticated } = useAuth0();
-  console.log("In the Navbar, About Auth0: ", loginUser);
+  console.log("user,", loginUser);
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );

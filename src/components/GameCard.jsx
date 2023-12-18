@@ -24,7 +24,7 @@ const GameCard = ({ game }) => {
             <span className="text-2xl me-auto text-green-500 font-semibold">
               {game.gamePrice === 0 ? "Free" : "$" + game.gamePrice}
             </span>
-            <Link to={`/games/${game._id}`}>
+            <Link to={`/products/${game._id}`}>
               <button className="btn btn-primary btn-sm">Details</button>
             </Link>
             <button

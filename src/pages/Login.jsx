@@ -1,23 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Layout from "../layout/Layout";
 import { Auth0Context } from "../context/Auth0Context";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { loginUser, SetLoginUser } = useContext(Auth0Context);
-  const { loginWithPopup, isAuthenticated, user } = useAuth0();
-  SetLoginUser(user);
-  console.log("In the sign in Page: ", loginUser);
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/products";
+  const { loginWithPopup, isAuthenticated, user, isLoading } = useAuth0();
 
-  const signIn = () => {
-    loginWithPopup();
-    navigate(from, { replace: true });
+  const signIn = async () => {
+    await loginWithPopup();
   };
+
+  if (!isLoading) {
+    SetLoginUser(user);
+  }
 
   return (
     <Layout>
