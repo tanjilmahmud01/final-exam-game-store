@@ -55,10 +55,10 @@ const Contact = () => {
               {/* contact from */}
               <div className="flex items-center justify-center">
                 <div className="px-2 md:px-12">
-                  <p className="text-2xl font-bold text-gray-900 md:text-4xl">
+                  <p className="text-2xl font-bold text-green-600 md:text-4xl">
                     Get in touch
                   </p>
-                  <p className="mt-4 text-lg text-gray-600">
+                  <p className="mt-4 text-lg text-green-300">
                     Our friendly team would love to hear from you.
                   </p>
                   <form
@@ -69,7 +69,7 @@ const Contact = () => {
                     <div className="grid w-full gap-y-4 md:gap-x-4 lg:grid-cols-2">
                       <div className="grid w-full  items-center gap-1.5">
                         <label
-                          className="text-sm font-medium leading-none text-gray-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          className="text-sm font-medium leading-none  text-green-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                           htmlFor="first_name"
                         >
                           First Name
@@ -83,7 +83,7 @@ const Contact = () => {
                       </div>
                       <div className="grid w-full  items-center gap-1.5">
                         <label
-                          className="text-sm font-medium leading-none text-gray-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          className="text-sm font-medium leading-none  text-green-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                           htmlFor="last_name"
                         >
                           Last Name
@@ -98,7 +98,7 @@ const Contact = () => {
                     </div>
                     <div className="grid w-full  items-center gap-1.5">
                       <label
-                        className="text-sm font-medium leading-none text-gray-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        className="text-sm font-medium leading-none  text-green-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="email"
                       >
                         Email
@@ -112,7 +112,7 @@ const Contact = () => {
                     </div>
                     <div className="grid w-full  items-center gap-1.5">
                       <label
-                        className="text-sm font-medium leading-none text-gray-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        className="text-sm font-medium leading-none  text-green-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="phone_number"
                       >
                         Phone number
@@ -126,7 +126,7 @@ const Contact = () => {
                     </div>
                     <div className="grid w-full  items-center gap-1.5">
                       <label
-                        className="text-sm font-medium leading-none text-gray-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        className="text-sm font-medium leading-none  text-green-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="message"
                       >
                         Message

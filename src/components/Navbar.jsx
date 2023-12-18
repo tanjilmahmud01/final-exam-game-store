@@ -2,11 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { Auth0Context } from "../context/Auth0Context";
 import { useAuth0 } from "@auth0/auth0-react";
+import { GameCartContext } from "../context/GameCartContext";
 
 const Navbar = () => {
   const { loginUser, SetLoginUser } = useContext(Auth0Context);
+  const{cart, total} = useContext(GameCartContext);
   const { logout, isAuthenticated } = useAuth0();
   console.log("user,", loginUser);
+
+
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
@@ -49,12 +53,12 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
+              {/* <li>
                 <Link to={"/"}>Home</Link>
               </li>
               <li>
                 <Link to={"/about"}>About</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={"/products"}>Products</Link>
               </li>
@@ -66,16 +70,16 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Link to={'/products'} className="btn btn-ghost text-xl">The Game Store</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
+            {/* <li>
               <Link to={"/"}>Home</Link>
             </li>
             <li>
               <Link to={"/about"}>About</Link>
-            </li>
+            </li> */}
             <li>
               <Link to={"/products"}>Products</Link>
             </li>
@@ -111,7 +115,7 @@ const Navbar = () => {
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  <span className="badge badge-sm indicator-item">8</span>
+                  <span className="badge badge-sm indicator-item">{cart.length}</span>
                 </div>
               </div>
               <div
@@ -119,12 +123,14 @@ const Navbar = () => {
                 className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
               >
                 <div className="card-body">
-                  <span className="font-bold text-lg">8 Items</span>
-                  <span className="text-info">Subtotal: $999</span>
+                  <span className="font-bold text-lg">{cart.length} Items</span>
+                  <span className="text-info">Subtotal: ${total.toFixed(2)}</span>
                   <div className="card-actions">
+                    <Link to={"/cart"}>
                     <button className="btn btn-primary btn-block">
                       View cart
                     </button>
+                    </Link>
                   </div>
                 </div>
               </div>

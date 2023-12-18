@@ -22,6 +22,7 @@ const ConfirmOrder = ({ cart }) => {
       progress: undefined,
       theme: "dark",
     });
+   <Navigate to={"/products"}></Navigate>
   };
 
   return (
@@ -34,7 +35,7 @@ const ConfirmOrder = ({ cart }) => {
             {cart.map((game) => (
               <div className="flex justify-between items-center mb-2">
                 <span>{game.gameName}</span>
-                <span>{game.gamePrice}</span>
+                <span>${game.gamePrice}</span>
               </div>
             ))}
           </div>
@@ -42,9 +43,9 @@ const ConfirmOrder = ({ cart }) => {
           <div className="divider divider-neutral"></div>
           <div className="flex justify-between items-center">
             <span>Total: </span>
-            <span>{total.toFixed(2)}</span>
+            <span>${total.toFixed(2)}</span>
           </div>
-          <div className="card-actions justify-end">
+          <div className="card-actions justify-end mt-2">
             <button onClick={orderConfirm} className="btn btn-primary">
               Confirm Order
             </button>

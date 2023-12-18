@@ -31,8 +31,12 @@ export const GameCartProvider = ({ children }) => {
     });
   };
 
+  let total = cart.reduce((previousValue, currentValue) => {
+    return previousValue + currentValue.gamePrice;
+  }, 0);
+
   return (
-    <GameCartContext.Provider value={{ cart, addToCart }}>
+    <GameCartContext.Provider value={{ cart, addToCart, total }}>
       {children}
     </GameCartContext.Provider>
   );

@@ -31,9 +31,11 @@ const SingleProduct = () => {
   return (
     <Layout>
       <section>
+        {/* loader */}
         <div className="flex justify-center mt-5">
           {loading && <Loader></Loader>}
         </div>
+        {/* description */}
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-col lg:flex-row gap-4 justify-center">
             <div className="w-full lg:w-1/2">
@@ -66,6 +68,12 @@ const SingleProduct = () => {
                     <li className="badge badge-error">{tag}</li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="mt-2">
+                <h2 className="text-2xl">Price: $
+                  <span className="text-blue-400 text-2xl">{gameData.gamePrice}</span>
+                   </h2>
               </div>
 
               {/* modal */}
